@@ -1,0 +1,168 @@
+﻿* {
+    font-family: sans-serif;
+}
+
+/*
+    Za pozicioniranje header, container i footer
+    koristimo CSS FlexBox kojim se brzo i lako
+    pozicioniraju elementi veb strane, narocito div-ovi.
+    Ovime smo rekli da delovi header-a i footera tj. div-ovi
+    u njima se redjaju jedan do drugog, a ne jedan ispod
+    drugog sto je default nacin. Takodje, flexbox pomaze i u pozicioniranju
+    teksta.
+    CSS Flexbox docs: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+    Dobar CSS FlexBox tutoriali:
+    https://www.w3schools.com/css/css3_flexbox.asp
+    https://www.youtube.com/watch?v=3YW65K6LcIA&t=1s
+
+*/
+
+#naslov {
+    color: rgb(38, 76, 115);
+}
+
+.header {
+    display: flex;
+    height: 6vh;
+    border: 3px solid rgb(38, 76, 115);
+    background-color: rgb(38, 76, 115);
+    color: white;
+    border-top: 1px solid gray;
+    position: relative;
+}
+
+.hcol1 {
+    display: flex;
+    margin: 0;
+    border-right: 1px solid white;
+    position: relative;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.hcol2 {
+    display: flex;
+    margin: 0;
+    position: relative;
+    width: 85%;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    /*box sizing: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+    justify-content: center;
+    align-items: center;
+    padding-right: 75%;
+}
+
+
+/*sa max-height: fit-content smo rekli da visina container-a treba da odgovara tome koliko elemenata
+        imamo u container-u, prema slikama zahteva dizajna maturskih zadataka.
+    */
+.container {
+    display: block;/*bilo ovako*/
+    /*display: flex;*/ /*sad ovako*/   
+    margin: 0 auto;
+    padding: 15px;
+    /*height: 60vh;*/
+    max-height: fit-content;
+    text-align: center;
+    border: 3px solid rgb(63, 127, 192);
+    background-color: white;
+    border-left: 2px solid rgb(38, 76, 115);
+    border-right: 2px solid rgb(38, 76, 115);
+}
+
+
+.logoHeading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.labelsHeading{
+    display: flex;
+    justify-content: left;
+}
+
+.firstRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: start;    
+}
+
+
+.secondRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer {
+    display: flex;
+    height: 5vh;
+    border: 3px solid rgb(38, 76, 115);
+    background-color: rgb(38, 76, 115);
+    color: white;
+    position: relative;
+}
+
+.fcol1 {
+    display: flex;
+    margin: 0;
+    height: 100%;
+    width: 50%;
+    padding-right: 26%;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.fcol2 {
+    display: flex;
+    margin: 0;
+    height: 100%;
+    text-align: center;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 35%;
+    justify-content: center;
+    align-items: center;
+}
+
+.a {
+    text-decoration: underline;
+    color: white;
+    margin: 10px;
+}
+
+/*hr linije stilizovane klasama dole se javljaju u nekim zadacima. Ako su vam potrebne,
+    dodajte hr tag-ove(<hr>) i dodelite im jednu od klasa ispod u zavisnosti koja vam je potrebna.
+*/
+
+table, th, td {
+    border: 1px solid gray;
+}
+
+.uputstvo {
+    color: royalblue;
+   
+}
+
+.fading_line {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.gray_line {
+    border: 0;
+    height: 3px;
+    background-image: linear-gradient(gray, gray, gray);
+}

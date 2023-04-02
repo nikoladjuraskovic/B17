@@ -1,0 +1,2 @@
+﻿001   ALCATEL ONE TOUCH 5020X  Alcatel             512MBSingle Core    5         4         ~/Images/alcatel.png          11990     
+002   Lenovo K900, 32GB, Steel Lenovo              2GB  Dual Core      13        5.5       ~/Images/lenovo.png           49990     
