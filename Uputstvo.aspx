@@ -23,8 +23,7 @@
             <div class="container">                
                 <div class="uputstvo">
                     
-                    <h3>Uputstvo</h3>
-                    <br />
+                    <h3>Uputstvo</h3>                   
 
                     Veb aplikacija za prikaz i pretragu artikala u asortimanu. Biranjem parametara iz padajućih listi i klikom
                     na dugme traži u tabeli ispod se ispisuju podaci zajedno sa slikom telefona u prodavnici koji odgovaraju traženim specifikacijama.
