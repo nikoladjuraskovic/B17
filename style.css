@@ -151,11 +151,12 @@ table, th, td {
 }
 
 .uputstvo {
-    color: rgb(38, 76, 115);
+    color: rgb(38, 76, 115);   
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-items: left;
+    text-align: left;
 }
 
 .fading_line {
