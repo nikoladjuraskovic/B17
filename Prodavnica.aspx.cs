@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,11 +30,16 @@ namespace B17
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            trazeniTelefoni.Clear();
+            trazeniTelefoni.Clear(); // brisemo trazene telefone je pripremamo stranicu da korisnik ponovo vrsi pretragu telefona
+
+
             //System.Diagnostics.Debug.WriteLine("telefoni 1st time ili postBack " + telefoni.Count);
 
             // System.Diagnostics.Debug.WriteLine("Page Loaded");
-           
+          
+
+            /*https://localhost:44323/Uputstvo */
+
             if (IsPostBack == false) // ako stranica nije ucitana postBack-om(POST metodom ponovnog ucitavanja) tj. ako je ucitana prvi put(GET metodom)
             {
                 //samo tada popuni DropDownList-e sa podacima iz .txt fajla
@@ -78,6 +84,7 @@ namespace B17
 
 
             System.Diagnostics.Debug.WriteLine("Broj telefona u kolekciji:" + telefoni.Count);
+            //System.Diagnostics.Debug.WriteLine("Broj trazenih telefona u kolekciji:" + trazeniTelefoni.Count);
 
             foreach (var telefon in telefoni)
             {
@@ -102,6 +109,10 @@ namespace B17
 
         void FillPageWithData()
         {
+
+            telefoni.Clear(); /*sadrzaj liste telefoni se brise u slucaju da se stranica ucita iz stranice Uputstvo jer se tada ne cita
+                               POST metodom tj. nije autoPOstBack i bice ponovo pokrenut metod FillPageWIthData pa da ne bismo imali
+            duplikate u listi telefona.*/
 
             System.Diagnostics.Debug.WriteLine("Data Filled");
 

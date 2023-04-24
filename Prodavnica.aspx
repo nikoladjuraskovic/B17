@@ -46,7 +46,7 @@
 
                         <div class="dropdownList">
                         <asp:Label ID="Label1" runat="server" Text="Proizvođač:"></asp:Label>
-                        <asp:DropDownList ID="DropDownListProizvodjaci" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListProizvodjaci" runat="server" EnableViewState="true" ></asp:DropDownList>
                         </div>
                         <div class="dropdownList">
                         <asp:Label ID="Label4" runat="server" Text="RAM:"></asp:Label>
