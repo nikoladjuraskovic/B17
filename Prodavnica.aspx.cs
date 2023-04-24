@@ -23,6 +23,9 @@ namespace B17
         static List<Telefon> telefoni = new List<Telefon>();
         static List<Telefon> trazeniTelefoni = new List<Telefon>();
 
+
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,7 +36,7 @@ namespace B17
            
             if (IsPostBack == false) // ako stranica nije ucitana postBack-om(POST metodom ponovnog ucitavanja) tj. ako je ucitana prvi put(GET metodom)
             {
-                
+                //samo tada popuni DropDownList-e sa podacima iz .txt fajla
                 FillPageWithData();
 
             }
