@@ -27,13 +27,13 @@ namespace B17
         public string ram { get; set; }
         public string procesor { get; set; }
         public string kamera { get; set; }
-        public double  ekran { get; set; }
+        public string  ekran { get; set; }
         public string putanjaSlike { get; set; }
         public int cena { get; set; }
 
         public string karakteristike { get; set; }
 
-        public Telefon(string sifraArtikla, string nazivArtikla, string proizvodjac, string ram, string procesor, string kamera, double ekran, string putanjaSlike, int cena)
+        public Telefon(string sifraArtikla, string nazivArtikla, string proizvodjac, string ram, string procesor, string kamera, string ekran, string putanjaSlike, int cena)
         {
             this.sifraArtikla = sifraArtikla;
             this.nazivArtikla = nazivArtikla;

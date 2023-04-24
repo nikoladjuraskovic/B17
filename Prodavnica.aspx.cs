@@ -31,7 +31,7 @@ namespace B17
 
             // System.Diagnostics.Debug.WriteLine("Page Loaded");
            
-            if (IsPostBack == false)
+            if (IsPostBack == false) // ako stranica nije ucitana postBack-om(POST metodom ponovnog ucitavanja) tj. ako je ucitana prvi put(GET metodom)
             {
                 
                 FillPageWithData();
@@ -49,77 +49,47 @@ namespace B17
 
             //GridView1.Columns.Clear();
             // GridView1.Visible = false;
-            
-
-
-            DataSet phonesData = new DataSet();
-
-            string trazeniProizvodjac = "none";
-            string trazenaRamMemorija = "none";
-            string trazenaKamera = "none";
-            double trazeniEkran = 0;
-            string trazeniTipProcesora = "none";
+                 
+            string trazeniProizvodjac = " ";
+            string trazenaRamMemorija = " ";
+            string trazenaKamera = " ";
+            string trazeniEkran = " ";
+            string trazeniTipProcesora = " ";
           
-            if(DropDownListProizvodjaci.SelectedItem != null)
-            {
+         
                 //System.Diagnostics.Debug.WriteLine("Proizvodjaci Value: *" + DropDownListProizvodjaci.SelectedItem.Value + "*");
                 //System.Diagnostics.Debug.WriteLine("Proizvodjaci Text: *" + DropDownListProizvodjaci.SelectedItem.Text + "*");
-                trazeniProizvodjac = DropDownListProizvodjaci.SelectedItem.Value;
-            }
+             trazeniProizvodjac = DropDownListProizvodjaci.SelectedItem.Value;
+                      
+             trazenaRamMemorija= DropDownListRAM.SelectedItem.Value;
+           
+             trazenaKamera = DropDownListKamere.SelectedItem.Value;
+     
+             trazeniEkran = DropDownListEkrani.SelectedItem.Value;
+                     
+             trazeniTipProcesora = DropDownListProcesori.SelectedItem.Value;
 
-            if(DropDownListRAM.SelectedItem != null)
+            /*Prolazimo petljom kroz sve telefone, i ako je svaki trazeni parametar(svojstvo telefona) jednak tekucem telefonu
+             pri cemu mozda neki parametri nisu izabrani od strane korisnika, onda se traze takvi telefoni i ubacujemo ih u kolekciju.
+            if uslov nije ispunjen ako BAR jedan od SELEKTOVANIH(onih koji nisu " ") parametara se ne poklapa sa parametrom tekuceg telefona.*/
+
+
+            System.Diagnostics.Debug.WriteLine("Broj telefona u kolekciji:" + telefoni.Count);
+
+            foreach (var telefon in telefoni)
             {
-                trazenaRamMemorija= DropDownListRAM.SelectedItem.Value;
-            }
-
-            if(DropDownListKamere.SelectedItem != null)
-            {
-                trazenaKamera = DropDownListKamere.SelectedItem.Value;
-            }
-
-            if(DropDownListEkrani.SelectedItem != null)
-            {
-                trazeniEkran = Double.Parse(DropDownListEkrani.SelectedItem.Value);
-            }
-
-            if(DropDownListProcesori.SelectedItem != null)
-            {
-                trazeniTipProcesora = DropDownListProcesori.SelectedItem.Value;
-            }
-
-            //System.Diagnostics.Debug.WriteLine("telefoni " + telefoni.Count);
-            foreach(var telefon in telefoni)
-            {
-                //System.Diagnostics.Debug.WriteLine("Jednaki proizvodjaci: " + (telefon.proizvodjac == trazeniProizvodjac).ToString());
-
-                /*Ako je neki parametar pregrage unet i ako se desi da se ime telefona ne poklapa
-                 sa imenom trenutnog telefona iz liste, onda continue, tj. predji na sledeci telefon*/
-
-                if(trazeniProizvodjac != "none" && trazeniProizvodjac != telefon.proizvodjac)
-                {
-                    continue;
-                }
-                else if(trazenaRamMemorija != "none" && trazenaRamMemorija != telefon.ram)
-                {
-                    continue;
-                } else if(trazenaKamera != "none" && trazenaKamera != telefon.kamera)
-                {
-                    continue;
-                } else if(trazeniEkran != 0 && trazeniEkran != telefon.ekran)
-                {
-                    continue;
-                } else if(trazeniTipProcesora != "none" && trazeniTipProcesora != telefon.procesor)
-                {
-                    continue;
-                }
-                else
+                
+                if ((trazeniProizvodjac == telefon.proizvodjac || trazeniProizvodjac == " ") &&
+                        (trazenaRamMemorija == telefon.ram || trazenaRamMemorija == " ") &&
+                        (trazenaKamera == telefon.kamera || trazenaKamera == " ") &&
+                        (trazeniEkran == telefon.ekran || trazeniEkran == " ") &&
+                        (trazeniTipProcesora == telefon.procesor || trazeniTipProcesora == " "))
                 {
                     trazeniTelefoni.Add(telefon);
                 }
+
             }
-            //System.Diagnostics.Debug.WriteLine(trazeniTelefoni[0].ToString());
-            //System.Diagnostics.Debug.WriteLine("trazeni telefoni " + trazeniTelefoni.Count);
-            //GridView1.Visible = true;
+            
             GridView1.DataSource = trazeniTelefoni;
             GridView1.DataBind();
             
@@ -145,11 +115,19 @@ namespace B17
             string ramMemorija = "c";
             string tipProcesora = "d";
             string kamera = "e";
-            double ekran = 0;
+            string ekran = "e";
             string putanjaSlike = "";
             int cena = 0;
 
+            DropDownListDualSim.Items.Add(" ");
             DropDownListDualSim.Items.Add("NE");
+            DropDownListDualSim.Items.Add("DA");          
+            DropDownListProizvodjaci.Items.Add(" ");
+            DropDownListEkrani.Items.Add(" ");
+            DropDownListKamere.Items.Add(" ");
+            DropDownListProcesori.Items.Add(" ");
+            DropDownListRAM.Items.Add(" ");
+            
 
             for (int i = 0; i < telefoniLinije.Length; i++)
             {
@@ -162,7 +140,7 @@ namespace B17
                 tipProcesora = telefoniLinije[i].Substring(56, 15).Trim();
                 kamera = telefoniLinije[i].Substring(71, 10).Trim();
                 //System.Diagnostics.Debug.WriteLine("Ekran: *" + telefoniLinije[i].Substring(81, 10).Trim() + "*");
-                ekran = double.Parse(telefoniLinije[i].Substring(81, 10).Trim());
+                ekran = telefoniLinije[i].Substring(81, 10).Trim();
                 putanjaSlike = telefoniLinije[i].Substring(91, 30).Trim();
                 cena = int.Parse(telefoniLinije[i].Substring(121, 10).Trim());
 

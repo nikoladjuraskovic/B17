@@ -46,22 +46,22 @@
 
                         <div class="dropdownList">
                         <asp:Label ID="Label1" runat="server" Text="Proizvođač:"></asp:Label>
-                        <asp:DropDownList ID="DropDownListProizvodjaci" runat="server" AutoPostBack="false"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListProizvodjaci" runat="server"></asp:DropDownList>
                         </div>
                         <div class="dropdownList">
                         <asp:Label ID="Label4" runat="server" Text="RAM:"></asp:Label>
-                        <asp:DropDownList ID="DropDownListRAM" runat="server" AutoPostBack="false"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListRAM" runat="server"></asp:DropDownList>
                         </div>
                     </div>
 
                     <div class="item">
                         <div class="dropdownList">
                             <asp:Label ID="Label2" runat="server" Text="Kamera:"></asp:Label>
-                            <asp:DropDownList ID="DropDownListKamere" runat="server" AutoPostBack="false"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownListKamere" runat="server"></asp:DropDownList>
                         </div>
                         <div class="dropdownList">
                             <asp:Label ID="Label5" runat="server" Text="Dual SIM:"></asp:Label>
-                            <asp:DropDownList ID="DropDownListDualSim" runat="server" AutoPostBack="false"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownListDualSim" runat="server"></asp:DropDownList>
                         </div>
                     </div>
 
@@ -69,11 +69,11 @@
                     <div class="item">
                         <div class="dropdownList">
                         <asp:Label ID="Label3" runat="server" Text="Ekran:"></asp:Label>
-                        <asp:DropDownList ID="DropDownListEkrani" runat="server" AutoPostBack="false"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListEkrani" runat="server"></asp:DropDownList>
                         </div>
                         <div class="dropdownList">
                         <asp:Label ID="Label6" runat="server" Text="Procesor:"></asp:Label>
-                        <asp:DropDownList ID="DropDownListProcesori" runat="server" AutoPostBack="false"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListProcesori" runat="server"></asp:DropDownList>
                         </div>
                     
                     </div>
