@@ -27,8 +27,7 @@
 
                     Veb aplikacija za prikaz i pretragu artikala u asortimanu. Biranjem parametara iz padajućih listi i klikom
                     na dugme traži u tabeli ispod se ispisuju podaci zajedno sa slikom telefona u prodavnici koji odgovaraju traženim specifikacijama.
-                    Na prvoj stranici se mogu pretražiti telefoni, a na drugoj je uputstvo za upotrebu. Aplikacija je rađena korišćenjem
-                    ASP.NET Web Forms tehnologije(.NET Framework 4.8).
+                    Na prvoj stranici se mogu pretražiti telefoni, a na drugoj je uputstvo za upotrebu.
 
                    
                 </div> 
